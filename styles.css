@@ -263,34 +263,41 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .experience-preview,
 .personal-section { background: transparent; }
 
-/* ---------- Projects ---------- */
+/* ---------- Cards (projects + experience share this) ---------- */
 .home-project-grid,
-.project-grid {
+.project-grid,
+.experience-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 3rem 2.5rem;
+  gap: 1.75rem;
 }
 .project-grid { padding-top: 3rem; }
 
 .project-card {
   display: flex;
   flex-direction: column;
-  border: 0;
-  background: transparent;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #f7faf1;
+  box-shadow: 0 2px 10px rgba(40, 53, 31, 0.08);
+  transition: box-shadow 0.2s ease;
 }
+.project-card:hover { box-shadow: 0 8px 22px rgba(40, 53, 31, 0.15); }
 
 .project-image,
 .detail-image {
   position: relative;
-  height: auto;
-  aspect-ratio: 3 / 4;
-  border: 1px solid var(--ink);
-  background: transparent;
+  aspect-ratio: 16 / 10;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: rgba(40, 53, 31, 0.06);
   overflow: hidden;
 }
+.project-image img { width: 100%; height: 100%; object-fit: cover; }
 .project-image::before, .project-image::after,
 .detail-image::before, .detail-image::after { display: none; }
-.detail-image { aspect-ratio: 16 / 9; height: auto; }
+.detail-image { aspect-ratio: 16 / 9; border: 1px solid var(--ink); }
 
 .project-index,
 .project-image-note,
@@ -308,37 +315,81 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .project-card-text {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: stretch;
   flex: 1;
-  padding: 1rem 0 0;
+  padding: 1.25rem 1.5rem 1.15rem;
 }
 
+/* Organisation row: small logo + name, above the title */
+.card-org {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 1.1rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.card-org img,
+.card-logo {
+  width: 2rem;
+  height: 2rem;
+  padding: 2px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+  object-fit: contain;
+}
+
+.project-card h3 {
+  margin: 0 0 0.6rem;
+  font: 700 clamp(1.3rem, 2.2vw, 1.6rem)/1.3 "essay-text", serif;
+  letter-spacing: normal;
+  text-transform: none;
+}
+.project-card p {
+  max-width: none;
+  margin: 0 0 1.25rem;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+.card-arrow { order: 2; margin-top: auto; margin-bottom: 1rem; }
+
+/* Bottom strip: skills on the left, dates on the right */
 .card-meta {
+  order: 3;
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 1rem;
+  margin-top: auto;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--line);
   font-size: 0.68rem;
   letter-spacing: 0.075em;
   text-transform: uppercase;
   color: var(--ink-soft);
 }
-.card-meta span:last-child { color: var(--ink-soft); white-space: nowrap; }
+.card-meta span:last-child { white-space: nowrap; color: var(--ink-soft); }
 
-.project-card h3 {
-  margin: 0.75rem 0 0.55rem;
-  font: 400 0.84rem/1.5 "essay-text", serif;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+.card-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
-.project-card p {
-  margin: 0 0 1rem;
-  max-width: 29rem;
-  font-size: 14px;
-  line-height: 1.5;
+.card-skills li {
+  padding: 0.15rem 0.55rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   color: var(--ink);
 }
-.card-arrow { margin-top: auto; }
 
 /* ---------- Experience preview rows ---------- */
 .preview-rows { border-top: 1px solid var(--line); }
@@ -612,7 +663,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   .header-contact { display: none; }
   .menu-button { margin-left: auto; }
   .section-head { align-items: start; }
-  .home-project-grid, .project-grid { grid-template-columns: 1fr; }
+  .home-project-grid, .project-grid, .experience-grid { grid-template-columns: 1fr; }
   .photo-space { grid-template-columns: repeat(2, 1fr); }
   .photo-slot { height: 160px; }
   .photo-slot:last-child { display: none; }
