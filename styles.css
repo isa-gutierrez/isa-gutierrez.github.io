@@ -893,3 +893,32 @@ main, .site-footer { position: relative; z-index: 1; }
 .detail-figure img { display: block; width: 100%; border: 1px solid var(--line-strong); background: #fff; }
 .detail-figure figcaption { padding-top: 0.4rem; font-size: 13px; color: var(--ink-soft); }
 img.photo-slot { display: block; width: 100%; padding: 0; object-fit: cover; background: none; }
+
+/* ---------- Experience: skills under dates ---------- */
+.experience-item summary { grid-template-columns: 200px 1fr 100px 16px; }
+.experience-details { margin-left: 222px; }
+.experience-when { display: block; }
+.experience-when .experience-date { display: block; padding-top: 0.2rem; }
+.experience-skills-side { display: block; margin-top: 0.5rem; }
+.experience-skills-side span { display: block; font-size: 13px; line-height: 1.45; color: var(--ink-soft); }
+.engagement { margin: 1.5rem 0 0.4rem; font: 700 14px/1.4 "essay-text", Georgia, "Times New Roman", serif; }
+.engagement:first-of-type { margin-top: 1.25rem; }
+.engagement-meta { display: block; font-weight: 400; color: var(--ink-soft); }
+@media (max-width: 760px) {
+  .experience-item summary { grid-template-columns: 130px 1fr 16px; }
+  .experience-details { margin-left: 144px; }
+}
+@media (max-width: 540px) {
+  .experience-item summary { grid-template-columns: 1fr 16px; }
+  .experience-when, .experience-name { grid-column: 1; }
+  .experience-details { margin-left: 0; }
+}
+.page-intro p.construction-note {
+  display: inline-block;
+  max-width: none;
+  margin: 1.25rem 0 0;
+  padding: 0.45rem 0.8rem;
+  border: 1px dashed var(--line-strong);
+  font-size: 13px;
+  color: var(--ink-soft);
+}
