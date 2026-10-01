@@ -885,3 +885,11 @@ main, .site-footer { position: relative; z-index: 1; }
 .theme-toggle:hover { background: transparent; color: var(--ink); opacity: 0.7; }
 
 .intro-copy .eyebrow { white-space: nowrap; }
+
+/* ---------- Real images ---------- */
+.project-image img, .detail-image img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.project-image.diagram img, .detail-image.is-diagram img { object-fit: contain; background: #fff; }
+.detail-figure { margin: 0 0 1.5rem; }
+.detail-figure img { display: block; width: 100%; border: 1px solid var(--line-strong); background: #fff; }
+.detail-figure figcaption { padding-top: 0.4rem; font-size: 13px; color: var(--ink-soft); }
+img.photo-slot { display: block; width: 100%; padding: 0; object-fit: cover; background: none; }
