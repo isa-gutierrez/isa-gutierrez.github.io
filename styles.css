@@ -922,3 +922,15 @@ img.photo-slot { display: block; width: 100%; padding: 0; object-fit: cover; bac
   font-size: 13px;
   color: var(--ink-soft);
 }
+
+.header-contact + .header-contact { margin-left: 1.25rem; }
+
+/* ---------- Home photo grid ---------- */
+.personal-grid { grid-template-columns: 1fr; }
+.photo-space { grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
+img.photo-slot { height: 240px; }
+@media (max-width: 540px) {
+  .photo-space { grid-template-columns: repeat(2, 1fr); }
+  img.photo-slot { height: 180px; }
+  img.photo-slot:last-child { display: block; }
+}
